@@ -1,0 +1,145 @@
+# Translations template for PROJECT.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-09-04 18:07+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+msgid "MOVE"
+msgstr ""
+
+msgid "-"
+msgstr ""
+
+msgid "MOVE_UP"
+msgstr ""
+
+msgid "MOVE_DOWN"
+msgstr ""
+
+msgid "MOVE_LEFT"
+msgstr ""
+
+msgid "MOVE_RIGHT"
+msgstr ""
+
+msgid "FIRE"
+msgstr ""
+
+msgid "LEVEL"
+msgstr ""
+
+msgid "HP"
+msgstr ""
+
+msgid "EXP"
+msgstr ""
+
+msgid "VERSION"
+msgstr ""
+
+msgid "FINAL_LEVEL"
+msgstr ""
+
+msgid "GAME_OVER"
+msgstr ""
+
+msgid "GAME_INTRODUCTION"
+msgstr ""
+
+msgid "PLACEHOLDER"
+msgstr ""
+
+msgid "START_GAME"
+msgstr ""
+
+msgid "OPTIONS"
+msgstr ""
+
+msgid "ABOUT"
+msgstr ""
+
+msgid "EXIT_GAME"
+msgstr ""
+
+msgid "RESUME_GAME"
+msgstr ""
+
+msgid "SKILL_1"
+msgstr ""
+
+msgid "SKILL_2"
+msgstr ""
+
+msgid "AIM_UP"
+msgstr ""
+
+msgid "AIM_DOWN"
+msgstr ""
+
+msgid "AIM_LEFT"
+msgstr ""
+
+msgid "AIM_RIGHT"
+msgstr ""
+
+msgid "PRESS_KEY"
+msgstr ""
+
+msgid "AUDIO"
+msgstr ""
+
+msgid "MASTER"
+msgstr ""
+
+msgid "MUSIC"
+msgstr ""
+
+msgid "SFX"
+msgstr ""
+
+msgid "CONTROLS"
+msgstr ""
+
+msgid "RESTORE_DEFAULTS"
+msgstr ""
+
+msgid "GENERAL"
+msgstr ""
+
+msgid "LANGUAGE"
+msgstr ""
+
+msgid "LANG_DE"
+msgstr ""
+
+msgid "LANG_EN"
+msgstr ""
+
+msgid "LANG_JA"
+msgstr ""
+
+msgid "FONT_SIZE"
+msgstr ""
+
+msgid "+"
+msgstr ""
+
+msgid "BACK_TO_MENU"
+msgstr ""
+
+msgid "BACK"
+msgstr ""
+
