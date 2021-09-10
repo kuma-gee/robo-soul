@@ -1,5 +1,7 @@
 extends Node
 
+signal font_size_changed()
+
 const GENERAL_SECTION = "general"
 const AUDIO_SECTION = "audio"
 const INPUT_SECTION = "input"
@@ -15,6 +17,10 @@ func _ready():
 	load_settings()
 
 func load_settings():
+	var file = File.new()
+	if not file.file_exists(CONFIG_FILE):
+		return
+	
 	var error = _config.load(CONFIG_FILE)
 	if error != OK:
 		print("Error loading settings: %s" % error)
@@ -94,7 +100,7 @@ func get_language() -> String:
 func set_font_size(size: int) -> void:
 	var font = default_theme.get("default_font")
 	font.set("size", size)
-	Events.emit_signal("font_size_changed")
+	emit_signal("font_size_changed")
 
 func get_font_size() -> int:
 	var font = default_theme.get("default_font")

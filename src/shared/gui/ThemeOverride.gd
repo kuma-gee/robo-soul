@@ -16,7 +16,7 @@ func _ready():
 	set("custom_fonts/font", font)
 	
 	_update_font_size()
-	Events.connect("font_size_changed", self, "_update_font_size")
+	Settings.connect("font_size_changed", self, "_update_font_size")
 
 func _update_font_size():
 	if relative_font_size != 1.0:
