@@ -4,7 +4,7 @@ signal running
 signal idle
 
 export var character_path: NodePath
-onready var character: Character = get_node(character_path)
+onready var character = get_node(character_path)
 
 var velocity = Vector2.ZERO
 

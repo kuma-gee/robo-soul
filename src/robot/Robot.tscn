@@ -1,0 +1,226 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://src/robot/robot.png" type="Texture" id=1]
+[ext_resource path="res://src/robot/tracks.png" type="Texture" id=2]
+[ext_resource path="res://src/shared/input/PlayerInput.gd" type="Script" id=3]
+[ext_resource path="res://src/shared/StateMachine/SimpleMove2D.gd" type="Script" id=4]
+[ext_resource path="res://src/robot/Robot.gd" type="Script" id=5]
+[ext_resource path="res://src/shared/StateMachine/Gravity2D.gd" type="Script" id=6]
+[ext_resource path="res://src/shared/misc/TurnMotion2D.gd" type="Script" id=7]
+[ext_resource path="res://src/robot/FlickArea.gd" type="Script" id=8]
+[ext_resource path="res://src/shared/misc/MouseHover.gd" type="Script" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Move"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprites/TrackFront:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprites/TrackBack:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0, 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprites/Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -40, -50 ), Vector2( -40, -45 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/Sprites/Body:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body/Sprites/Body:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Offline"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprites/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -40, -50 ), Vector2( -40, -30 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprites/Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprites/Body:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.666667, 0.666667, 0.666667, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Online"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprites/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -40, -30 ), Vector2( -40, -50 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprites/Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprites/Body:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.666667, 0.666667, 0.666667, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 87.419, 71.9322 )
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 42.1034
+
+[node name="Robot" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Move = SubResource( 1 )
+anims/Offline = SubResource( 2 )
+anims/Online = SubResource( 3 )
+
+[node name="Body" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 4 )
+
+[node name="Sprites" type="Node2D" parent="Body"]
+position = Vector2( 40, 41.7593 )
+
+[node name="TrackBack" type="Sprite" parent="Body/Sprites"]
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="Body" type="Sprite" parent="Body/Sprites"]
+modulate = Color( 0.666667, 0.666667, 0.666667, 1 )
+position = Vector2( -40, -30 )
+texture = ExtResource( 1 )
+hframes = 2
+frame = 1
+
+[node name="TrackFront" type="Sprite" parent="Body/Sprites"]
+position = Vector2( -80, 0 )
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="PlayerInput" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="SimpleMove2D" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Gravity2D" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="TurnMotion2D" type="Node" parent="."]
+script = ExtResource( 7 )
+node_path = NodePath("../Body")
+
+[node name="FlickArea" type="Area2D" parent="."]
+collision_mask = 0
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlickArea"]
+shape = SubResource( 5 )
+
+[node name="MouseHover" type="Node" parent="FlickArea"]
+script = ExtResource( 9 )
+node_path = NodePath("..")
+
+[node name="Line" type="Line2D" parent="FlickArea"]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="flicked" from="FlickArea" to="." method="_on_FlickArea_flicked"]
+[connection signal="mouse_move" from="FlickArea/MouseHover" to="FlickArea" method="_on_MouseHover_mouse_move"]
+[connection signal="mouse_pressed" from="FlickArea/MouseHover" to="FlickArea" method="_on_MouseHover_mouse_pressed"]
+[connection signal="mouse_released" from="FlickArea/MouseHover" to="FlickArea" method="_on_MouseHover_mouse_released"]

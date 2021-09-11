@@ -33,6 +33,7 @@ var current #: GUIMenu
 func _ready():
 	var _x = stack.connect("removed", self, "_add_current_menu", [false])
 	var _y = stack.connect("added", self, "_add_current_menu", [true])
+	_update_gui()
 
 
 func _unhandled_input(event):

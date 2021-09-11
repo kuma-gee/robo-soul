@@ -12,79 +12,45 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RebindableAction" parent="." instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 958.0
-margin_bottom = 176.0
-action = "MOVE_UP"
-
-[node name="RebindableAction2" parent="." instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 962.0
-margin_right = 1920.0
-margin_bottom = 176.0
-action = "MOVE_DOWN"
-
 [node name="RebindableAction3" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 180.0
 margin_right = 958.0
-margin_bottom = 356.0
+margin_bottom = 267.0
 action = "MOVE_LEFT"
 
 [node name="RebindableAction4" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 962.0
-margin_top = 180.0
 margin_right = 1920.0
-margin_bottom = 356.0
+margin_bottom = 267.0
 action = "MOVE_RIGHT"
 
 [node name="RebindableAction5" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 360.0
+margin_top = 271.0
 margin_right = 958.0
-margin_bottom = 536.0
+margin_bottom = 538.0
 action = "FIRE"
-
-[node name="RebindableAction6" parent="." instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 962.0
-margin_top = 360.0
-margin_right = 1920.0
-margin_bottom = 536.0
-action = "SKILL_1"
-
-[node name="RebindableAction7" parent="." instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 540.0
-margin_right = 958.0
-margin_bottom = 716.0
-action = "SKILL_2"
 
 [node name="RebindableAction8" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 962.0
-margin_top = 540.0
+margin_top = 271.0
 margin_right = 1920.0
-margin_bottom = 716.0
+margin_bottom = 538.0
 action = "AIM_UP"
 joypad_exclusive = true
 
 [node name="RebindableAction9" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 720.0
+margin_top = 542.0
 margin_right = 958.0
-margin_bottom = 896.0
+margin_bottom = 809.0
 action = "AIM_DOWN"
 joypad_exclusive = true
 
@@ -92,17 +58,17 @@ joypad_exclusive = true
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 962.0
-margin_top = 720.0
+margin_top = 542.0
 margin_right = 1920.0
-margin_bottom = 896.0
+margin_bottom = 809.0
 action = "AIM_LEFT"
 joypad_exclusive = true
 
 [node name="RebindableAction11" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 900.0
+margin_top = 813.0
 margin_right = 958.0
-margin_bottom = 1076.0
+margin_bottom = 1080.0
 action = "AIM_RIGHT"
 joypad_exclusive = true
