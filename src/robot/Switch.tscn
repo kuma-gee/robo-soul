@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/robot/switch.png" type="Texture" id=1]
+[ext_resource path="res://src/robot/FlickArea.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/robot/SoulessMachine.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/shared/input/PlayerInput.gd" type="Script" id=4]
+[ext_resource path="res://src/robot/Switch.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 34.1092, 27.4898 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Offline"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.666667, 0.666667, 0.666667, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Online"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.666667, 0.666667, 0.666667, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 38.2308, 38.2236 )
+
+[node name="Switch" type="Area2D"]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="FlickArea" parent="." instance=ExtResource( 2 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.666667, 0.666667, 0.666667, 1 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Offline = SubResource( 2 )
+anims/Online = SubResource( 3 )
+
+[node name="SoulessMachine" parent="." instance=ExtResource( 3 )]
+flick_path = NodePath("../FlickArea")
+anim_path = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoulessMachine"]
+shape = SubResource( 4 )
+
+[node name="PlayerInput" type="Node" parent="."]
+script = ExtResource( 4 )

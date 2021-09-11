@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/shared/misc/MouseHover.gd" type="Script" id=1]
+[ext_resource path="res://src/robot/FlickArea.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 42.1034
+
+[node name="FlickArea" type="Area2D"]
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="MouseHover" type="Node" parent="."]
+script = ExtResource( 1 )
+node_path = NodePath("..")
+
+[node name="Line" type="Line2D" parent="."]
+
+[connection signal="mouse_move" from="MouseHover" to="." method="_on_MouseHover_mouse_move"]
+[connection signal="mouse_pressed" from="MouseHover" to="." method="_on_MouseHover_mouse_pressed"]
+[connection signal="mouse_released" from="MouseHover" to="." method="_on_MouseHover_mouse_released"]

@@ -7,8 +7,8 @@
 [ext_resource path="res://src/robot/Robot.gd" type="Script" id=5]
 [ext_resource path="res://src/shared/StateMachine/Gravity2D.gd" type="Script" id=6]
 [ext_resource path="res://src/shared/misc/TurnMotion2D.gd" type="Script" id=7]
-[ext_resource path="res://src/robot/FlickArea.gd" type="Script" id=8]
-[ext_resource path="res://src/shared/misc/MouseHover.gd" type="Script" id=9]
+[ext_resource path="res://src/robot/FlickArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/robot/SoulessMachine.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Move"
@@ -158,8 +158,8 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 87.419, 71.9322 )
 
-[sub_resource type="CircleShape2D" id=5]
-radius = 42.1034
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 48.7497, 39.1803 )
 
 [node name="Robot" type="KinematicBody2D"]
 collision_layer = 2
@@ -180,6 +180,7 @@ position = Vector2( 40, 41.7593 )
 [node name="TrackBack" type="Sprite" parent="Body/Sprites"]
 texture = ExtResource( 2 )
 hframes = 2
+frame = 1
 
 [node name="Body" type="Sprite" parent="Body/Sprites"]
 modulate = Color( 0.666667, 0.666667, 0.666667, 1 )
@@ -192,6 +193,7 @@ frame = 1
 position = Vector2( -80, 0 )
 texture = ExtResource( 2 )
 hframes = 2
+frame = 1
 
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -206,21 +208,11 @@ script = ExtResource( 6 )
 script = ExtResource( 7 )
 node_path = NodePath("../Body")
 
-[node name="FlickArea" type="Area2D" parent="."]
-collision_mask = 0
-script = ExtResource( 8 )
+[node name="FlickArea" parent="." instance=ExtResource( 8 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlickArea"]
+[node name="SoulessMachine" parent="." instance=ExtResource( 9 )]
+flick_path = NodePath("../FlickArea")
+anim_path = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoulessMachine"]
 shape = SubResource( 5 )
-
-[node name="MouseHover" type="Node" parent="FlickArea"]
-script = ExtResource( 9 )
-node_path = NodePath("..")
-
-[node name="Line" type="Line2D" parent="FlickArea"]
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="flicked" from="FlickArea" to="." method="_on_FlickArea_flicked"]
-[connection signal="mouse_move" from="FlickArea/MouseHover" to="FlickArea" method="_on_MouseHover_mouse_move"]
-[connection signal="mouse_pressed" from="FlickArea/MouseHover" to="FlickArea" method="_on_MouseHover_mouse_pressed"]
-[connection signal="mouse_released" from="FlickArea/MouseHover" to="FlickArea" method="_on_MouseHover_mouse_released"]

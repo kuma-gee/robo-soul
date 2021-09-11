@@ -6,8 +6,12 @@ export var max_length := 100
 export var min_length := 50
 
 onready var line := $Line
+onready var mouse := $MouseHover
 
 var press_pos
+
+func set_enabled(value: bool) -> void:
+	mouse.enabled = value
 
 func _on_MouseHover_mouse_pressed(pos: Vector2):
 	press_pos = _to_local_pos(pos)

@@ -14,13 +14,13 @@ tile_data = PoolIntArray( 0, 0, 131078, 1, 0, 131078, 2, 0, 131078, 3, 0, 131078
 
 [node name="Soul" parent="." instance=ExtResource( 3 )]
 position = Vector2( 190.703, 538.439 )
+applied_force = Vector2( 0, -5 )
 
 [node name="Robot2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1712.09, 777.646 )
 
 [node name="Robot1" parent="." instance=ExtResource( 2 )]
 position = Vector2( 192.822, 779.765 )
-flick_force = 0.5
 
 [node name="ChangeScene" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1924.14, 768.228 )
