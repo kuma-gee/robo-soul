@@ -78,10 +78,11 @@ func save_audio_settings():
 func save_input_settings():
 	for p in InputManager.get_profiles():
 		var profile := p as InputProfile
-		for action in profile.mappings:
-			var type = profile.mappings[action]
-			var section = "%s.%s" % [INPUT_SECTION, profile.get_profile_name()]
-			_config.set_value(section, action, type)
+		if profile != null:
+			for action in profile.mappings:
+				var type = profile.mappings[action]
+				var section = "%s.%s" % [INPUT_SECTION, profile.get_profile_name()]
+				_config.set_value(section, action, type)
 	save_config()
 
 func save_config():

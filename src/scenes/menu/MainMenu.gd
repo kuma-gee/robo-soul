@@ -9,7 +9,7 @@ func _ready():
 		exit.hide()
 		
 func _on_Start_pressed():
-	SceneManager.change_scene("Main")
+	SceneManager.change_scene()
 	GUI.open_menu(GUI.InGame, true)
 
 
