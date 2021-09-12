@@ -41,7 +41,6 @@ func _on_finished(anim_name: String) -> void:
 		online = true
 		flick.set_enabled(true)
 		_transitioning = false
-		print("Online")
 	elif anim_name == "Offline":
 		online = false
 		flick.set_enabled(false)

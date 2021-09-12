@@ -22,7 +22,7 @@ tile_data = PoolIntArray( 65535, 0, 131078, 0, 0, 131078, 1, 0, 131078, 2, 0, 13
 position = Vector2( 1926.52, 768.228 )
 
 [node name="Robot2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1590.5, 783.006 )
+position = Vector2( 1757.9, 795.719 )
 
 [node name="Robot" parent="." instance=ExtResource( 3 )]
 position = Vector2( -80.6623, 799.405 )

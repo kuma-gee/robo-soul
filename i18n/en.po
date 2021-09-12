@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-04 18:07+0200\n"
+"POT-Creation-Date: 2021-09-12 13:31+0200\n"
 "PO-Revision-Date: 2021-07-30 11:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,49 +18,11 @@ msgstr ""
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "MOVE"
-msgstr "Move"
-
-msgid "-"
-msgstr ""
-
-msgid "MOVE_UP"
-msgstr "Move Up"
-
-msgid "MOVE_DOWN"
-msgstr "Move Down"
-
-msgid "MOVE_LEFT"
-msgstr "Move Left"
-
-msgid "MOVE_RIGHT"
-msgstr "Move Right"
-
-msgid "FIRE"
-msgstr "Fire"
-
-msgid "LEVEL"
-msgstr "Level"
-
-msgid "HP"
-msgstr "HP"
-
-msgid "EXP"
-msgstr "EXP"
-
 msgid "VERSION"
 msgstr "Version"
 
-msgid "FINAL_LEVEL"
-msgstr "Final Level"
-
 msgid "GAME_OVER"
 msgstr "Game Over"
-
-msgid "GAME_INTRODUCTION"
-msgstr ""
-"You get infinite EXP in exchange for your life.\n"
-"Kill enemies to survive."
 
 msgid "PLACEHOLDER"
 msgstr "Placeholder"
@@ -80,11 +42,14 @@ msgstr "Exit game"
 msgid "RESUME_GAME"
 msgstr "Resume game"
 
-msgid "SKILL_1"
-msgstr "Skill 1"
+msgid "MOVE_LEFT"
+msgstr "Move Left"
 
-msgid "SKILL_2"
-msgstr "Skill 2"
+msgid "MOVE_RIGHT"
+msgstr "Move Right"
+
+msgid "FIRE"
+msgstr "Fire"
 
 msgid "AIM_UP"
 msgstr "Aim Up"
@@ -137,6 +102,9 @@ msgstr "Japanese"
 msgid "FONT_SIZE"
 msgstr "Font size"
 
+msgid "-"
+msgstr ""
+
 msgid "+"
 msgstr ""
 
@@ -145,6 +113,41 @@ msgstr "Back to menu"
 
 msgid "BACK"
 msgstr "Back"
+
+msgid "RETRY"
+msgstr "Retry"
+
+#~ msgid "MOVE"
+#~ msgstr "Move"
+
+#~ msgid "MOVE_UP"
+#~ msgstr "Move Up"
+
+#~ msgid "MOVE_DOWN"
+#~ msgstr "Move Down"
+
+#~ msgid "LEVEL"
+#~ msgstr "Level"
+
+#~ msgid "HP"
+#~ msgstr "HP"
+
+#~ msgid "EXP"
+#~ msgstr "EXP"
+
+#~ msgid "FINAL_LEVEL"
+#~ msgstr "Final Level"
+
+#~ msgid "GAME_INTRODUCTION"
+#~ msgstr ""
+#~ "You get infinite EXP in exchange for your life.\n"
+#~ "Kill enemies to survive."
+
+#~ msgid "SKILL_1"
+#~ msgstr "Skill 1"
+
+#~ msgid "SKILL_2"
+#~ msgstr "Skill 2"
 
 #~ msgid "LANG_EN_US"
 #~ msgstr "English"

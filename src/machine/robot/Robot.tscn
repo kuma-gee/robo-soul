@@ -198,7 +198,7 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 87.419, 71.9322 )
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=8]
 radius = 39.7851
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -254,7 +254,7 @@ node_path = NodePath("../Body")
 [node name="FlickArea" parent="." instance=ExtResource( 5 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlickArea"]
-shape = SubResource( 5 )
+shape = SubResource( 8 )
 
 [node name="SoulessMachine" parent="." instance=ExtResource( 2 )]
 flick_path = NodePath("../FlickArea")

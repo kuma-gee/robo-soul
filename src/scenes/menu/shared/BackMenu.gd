@@ -12,4 +12,4 @@ func _on_BackMenu_pressed():
 	back_menu()
 	
 func back_menu():
-	var _x = get_tree().change_scene_to(menu_scene)
+	SceneManager.change_scene("Menu", SceneData.Type.GLOBAL)

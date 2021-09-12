@@ -44,3 +44,6 @@ delay = 0.5
 duration = 2.0
 node_path = NodePath("../Logo")
 type = 1
+
+[connection signal="finished" from="FadeIn" to="FadeOut" method="start"]
+[connection signal="finished" from="FadeOut" to="." method="_on_FadeOut_finished"]

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-09-04 18:07+0200\n"
+"POT-Creation-Date: 2021-09-12 13:31+0200\n"
 "PO-Revision-Date: 2021-07-30 10:59+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,49 +18,11 @@ msgstr ""
 "Generated-By: Babel 2.9.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "MOVE"
-msgstr "Bewegen"
-
-msgid "-"
-msgstr ""
-
-msgid "MOVE_UP"
-msgstr "Oben"
-
-msgid "MOVE_DOWN"
-msgstr "Unten"
-
-msgid "MOVE_LEFT"
-msgstr "Links"
-
-msgid "MOVE_RIGHT"
-msgstr "Rechts"
-
-msgid "FIRE"
-msgstr "Schießen"
-
-msgid "LEVEL"
-msgstr "Level"
-
-msgid "HP"
-msgstr "HP"
-
-msgid "EXP"
-msgstr "EXP"
-
 msgid "VERSION"
 msgstr "Version"
 
-msgid "FINAL_LEVEL"
-msgstr "Erreichter Level"
-
 msgid "GAME_OVER"
 msgstr "Game Over"
-
-msgid "GAME_INTRODUCTION"
-msgstr ""
-"Du bekommst unbegrenzt EXP im Austausch für dein Leben.\n"
-"Töte Gegner um zu überleben."
 
 msgid "PLACEHOLDER"
 msgstr "Platzhalter"
@@ -80,11 +42,14 @@ msgstr "Spiel schließen"
 msgid "RESUME_GAME"
 msgstr "Spiel fortsetzen"
 
-msgid "SKILL_1"
-msgstr "Fähigkeit 1"
+msgid "MOVE_LEFT"
+msgstr "Links"
 
-msgid "SKILL_2"
-msgstr "Fähigkeit 2"
+msgid "MOVE_RIGHT"
+msgstr "Rechts"
+
+msgid "FIRE"
+msgstr "Schießen"
 
 msgid "AIM_UP"
 msgstr "Oben zielen"
@@ -137,6 +102,9 @@ msgstr "Japanisch"
 msgid "FONT_SIZE"
 msgstr "Schriftgröße"
 
+msgid "-"
+msgstr ""
+
 msgid "+"
 msgstr ""
 
@@ -145,6 +113,41 @@ msgstr "Zurück zum Menü"
 
 msgid "BACK"
 msgstr "Zurück"
+
+msgid "RETRY"
+msgstr "Neustarten"
+
+#~ msgid "MOVE"
+#~ msgstr "Bewegen"
+
+#~ msgid "MOVE_UP"
+#~ msgstr "Oben"
+
+#~ msgid "MOVE_DOWN"
+#~ msgstr "Unten"
+
+#~ msgid "LEVEL"
+#~ msgstr "Level"
+
+#~ msgid "HP"
+#~ msgstr "HP"
+
+#~ msgid "EXP"
+#~ msgstr "EXP"
+
+#~ msgid "FINAL_LEVEL"
+#~ msgstr "Erreichter Level"
+
+#~ msgid "GAME_INTRODUCTION"
+#~ msgstr ""
+#~ "Du bekommst unbegrenzt EXP im Austausch für dein Leben.\n"
+#~ "Töte Gegner um zu überleben."
+
+#~ msgid "SKILL_1"
+#~ msgstr "Fähigkeit 1"
+
+#~ msgid "SKILL_2"
+#~ msgstr "Fähigkeit 2"
 
 #~ msgid "LANG_EN_US"
 #~ msgstr "Englisch"
