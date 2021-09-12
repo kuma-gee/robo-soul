@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/machine/soul.png" type="Texture" id=1]
 [ext_resource path="res://src/machine/Soul.gd" type="Script" id=2]
 [ext_resource path="res://src/shared/StateMachine/Bounce2D.gd" type="Script" id=3]
-[ext_resource path="res://src/machine/GameOverNotifier.gd" type="Script" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 2.0
@@ -37,11 +36,11 @@ color = Color( 0.937255, 0.635294, 0.498039, 1 )
 radius = 14.2305
 
 [sub_resource type="CircleShape2D" id=7]
-radius = 12.0026
+radius = 3.03128
 
 [node name="Soul" type="RigidBody2D"]
 z_index = 1
-collision_layer = 0
+collision_layer = 2
 mass = 0.1
 physics_material_override = SubResource( 1 )
 gravity_scale = 3.0
@@ -75,18 +74,11 @@ collision_mask = 128
 shape = SubResource( 6 )
 
 [node name="ColorSwitchDetector" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorSwitchDetector"]
 shape = SubResource( 7 )
 
-[node name="GameOverNotifier" type="VisibilityNotifier2D" parent="."]
-script = ExtResource( 4 )
-
-[node name="Timer" type="Timer" parent="GameOverNotifier"]
-
 [connection signal="area_entered" from="MachineDetector" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_entered" from="ColorSwitchDetector" to="." method="_on_ColorSwitchDetector_area_entered"]
-[connection signal="screen_exited" from="GameOverNotifier" to="GameOverNotifier" method="_on_GameOverNotifier_screen_exited"]

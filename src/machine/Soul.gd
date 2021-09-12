@@ -18,7 +18,7 @@ func update_color(c: int = _color) -> void:
 	$Sprite.modulate = color_value
 	$Particles2D.process_material.set("color", color_value)
 	
-	collision_layer = 0
+	collision_mask = 0
 	set_collision_mask_bit(0, true)
 	set_collision_mask_bit(get_color_layer_bit(c), true)
 

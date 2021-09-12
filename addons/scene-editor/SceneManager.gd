@@ -12,7 +12,6 @@ var next_scene := ""
 
 func change_scene(scene_name: String = "", type := SceneData.Type.FORWARD) -> void:
 	var scene = scene_data.find_scene(scene_name, type)
-	print(scene)
 	if scene != "":
 		if use_transition:
 			next_scene = scene
