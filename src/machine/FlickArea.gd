@@ -13,8 +13,8 @@ var press_pos
 func set_enabled(value: bool) -> void:
 	mouse.enabled = value
 
-func _on_MouseHover_mouse_pressed(pos: Vector2):
-	press_pos = _to_local_pos(pos)
+func _on_MouseHover_mouse_pressed(_pos: Vector2):
+	press_pos = _to_local_pos(global_position)
 	line.add_point(press_pos)
 
 
