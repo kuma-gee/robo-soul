@@ -3,7 +3,7 @@ extends Area2D
 signal flicked(dir)
 
 export var max_length := 100
-export var min_length := 50
+export var min_length := 30
 
 onready var line := $Line
 onready var mouse := $MouseHover
@@ -23,7 +23,9 @@ func _on_MouseHover_mouse_released(pos: Vector2):
 
 	var dir: Vector2 = _get_arrow_dir(pos)
 	if dir.length() >= min_length:
-		emit_signal("flicked", dir)
+		var length_ratio = dir.length() / max_length
+		var normalized = dir.normalized() * length_ratio
+		emit_signal("flicked", normalized)
 	
 	press_pos = null
 
@@ -43,3 +45,6 @@ func _get_arrow_dir(global_pos: Vector2) -> Vector2:
 	
 func _to_local_pos(global_pos: Vector2) -> Vector2:
 	return global_pos - global_position
+
+func set_color(color: Color) -> void:
+	line.default_color = color

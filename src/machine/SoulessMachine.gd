@@ -1,7 +1,7 @@
 class_name SoulessMachine extends Area2D
 
 export(Soul.ColorType) var accept_color = Soul.ColorType.RED
-export var flick_force := 10
+export var flick_force := 1.0
 
 export var flick_path: NodePath
 onready var flick: Node2D = get_node(flick_path)
@@ -19,6 +19,7 @@ var _transitioning := false
 func _ready():
 	anim.connect("animation_finished", self, "_on_finished")
 	flick.connect("flicked", self, "_on_FlickArea_flicked")
+	flick.set_color(Soul.get_color(accept_color))
 
 func _set_online(value: bool) -> void:
 	_transitioning = true

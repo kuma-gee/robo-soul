@@ -14,8 +14,10 @@ func _exit_tree():
 
 
 func _pause():
-	get_tree().paused = true
+	if is_inside_tree():
+		get_tree().paused = true
 
 
 func _resume():
-	get_tree().paused = false
+	if is_inside_tree():
+		get_tree().paused = false

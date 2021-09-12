@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-css-theme/ArgumentParser.gd"
 }, {
-"base": "Reference",
+"base": "Component",
 "class": "Bounce2D",
 "language": "GDScript",
 "path": "res://src/shared/StateMachine/Bounce2D.gd"
@@ -79,7 +79,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/shared/menu/GUIMenu.gd"
 }, {
-"base": "Reference",
+"base": "Component",
 "class": "Gravity2D",
 "language": "GDScript",
 "path": "res://src/shared/StateMachine/Gravity2D.gd"
@@ -309,7 +309,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/shared/rpg/SoftCollision2D.gd"
 }, {
-"base": "RigidBody2D",
+"base": "KinematicBody2D",
 "class": "Soul",
 "language": "GDScript",
 "path": "res://src/machine/Soul.gd"

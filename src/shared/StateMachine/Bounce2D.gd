@@ -1,17 +1,23 @@
 class_name Bounce2D extends Component
 
-export var min_friction := 100
+export var max_friction := 100
 
 var velocity := Vector2.ZERO
+var max_gravity := Vector2.DOWN * 9
 
-func get_body() -> RigidBody2D:
-	return node as RigidBody2D
+onready var gravity := $Gravity2D
 
-#func _physics_process(delta):
-##	var deaccell = max(pow(velocity.length() / 2, 2), min_friction)
-#	velocity = velocity.move_toward(Vector2.ZERO, min_friction * delta)
-##	velocity += Vector2.DOWN
-#
-#	var collision = get_body().move_and_collide(velocity)
-#	if collision:
-#		velocity = velocity.bounce(collision.normal)
+func get_body() -> KinematicBody2D:
+	return node as KinematicBody2D
+
+func set_initial_velocity(vel: Vector2):
+	velocity = vel
+
+func _physics_process(delta):
+	
+	velocity = velocity.move_toward(Vector2.ZERO, 20 * delta)
+	velocity = velocity.move_toward(velocity + max_gravity, 70 * delta)
+
+	var collision = get_body().move_and_collide(velocity)
+	if collision:
+		velocity = velocity.bounce(collision.normal)

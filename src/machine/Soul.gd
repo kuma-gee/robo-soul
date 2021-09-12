@@ -1,11 +1,11 @@
-class_name Soul extends RigidBody2D
+class_name Soul extends KinematicBody2D
 
 enum ColorType {
 	RED,
 	GREEN,
 }
 
-#onready var bounce := $Bounce2D
+onready var bounce := $Bounce2D
 
 export(ColorType) var _color: int = ColorType.RED
 
@@ -23,7 +23,7 @@ func update_color(c: int = _color) -> void:
 	set_collision_mask_bit(get_color_layer_bit(c), true)
 
 func apply_initial_velocity(vel: Vector2) -> void:
-	apply_central_impulse(vel)
+	bounce.set_initial_velocity(vel)
 
 
 func _on_Area2D_area_entered(body):
@@ -49,5 +49,5 @@ static func get_color_layer_bit(c: int) -> int:
 	return 1
 
 
-func _on_ColorSwitchDetector_area_entered(area):
+func _on_ColorSwitchDetector_area_exited(area):
 	update_color(area.color)

@@ -7,7 +7,7 @@
 [ext_resource path="res://src/machine/switch/SwitchGreen.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/machine/robot/RobotGreen.tscn" type="PackedScene" id=6]
 
-[node name="LevelBase" instance=ExtResource( 1 )]
+[node name="Level3" instance=ExtResource( 1 )]
 
 [node name="LaserBeam2D" parent="." index="0" instance=ExtResource( 4 )]
 position = Vector2( 142.668, 595.248 )
