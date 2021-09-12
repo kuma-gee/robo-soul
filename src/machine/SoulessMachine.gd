@@ -13,6 +13,7 @@ export var online := false setget _set_online
 
 const SOUL = preload("res://src/machine/Soul.tscn")
 
+var start_online := false
 var _transitioning := false
 
 func _ready():
@@ -40,15 +41,18 @@ func _on_finished(anim_name: String) -> void:
 		online = true
 		flick.set_enabled(true)
 		_transitioning = false
+		print("Online")
 	elif anim_name == "Offline":
 		online = false
 		flick.set_enabled(false)
 		_transitioning = false
+	elif anim_name == "Start" and start_online:
+		self.online = true
 
 func _on_FlickArea_flicked(dir: Vector2):
 	var soul = SOUL.instance()
 	get_tree().current_scene.add_child(soul)
-	soul.color = accept_color
+	soul.update_color(accept_color)
 	soul.global_position = flick.global_position
 	soul.apply_initial_velocity(dir * flick_force)
 	self.online = false

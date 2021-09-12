@@ -1,42 +1,43 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/map/Laser.gd" type="Script" id=1]
 [ext_resource path="res://src/machine/soul.png" type="Texture" id=2]
-[ext_resource path="res://src/shared/misc/CenterLine.gd" type="Script" id=3]
+[ext_resource path="res://src/shared/misc/SimpleLineCollision2D.gd" type="Script" id=3]
+[ext_resource path="res://src/map/ColorSwitch.tscn" type="PackedScene" id=4]
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 10, 5.07454 )
 
-[sub_resource type="Gradient" id=1]
+[sub_resource type="Gradient" id=12]
 offsets = PoolRealArray( 0.582915, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=14]
 _data = [ Vector2( 0.518072, 1 ), 0.0, -3.53434, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 14 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=16]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.5
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+scale_curve = SubResource( 15 )
+color_ramp = SubResource( 13 )
 
-[sub_resource type="Curve" id=6]
+[sub_resource type="Curve" id=17]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.503614, 0.957505 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=7]
-curve = SubResource( 6 )
+[sub_resource type="CurveTexture" id=18]
+curve = SubResource( 17 )
 
-[sub_resource type="ParticlesMaterial" id=8]
+[sub_resource type="ParticlesMaterial" id=19]
 emission_shape = 2
 emission_box_extents = Vector3( 60, 20, 1 )
 flag_align_y = true
@@ -50,9 +51,22 @@ orbit_velocity_random = 0.0
 tangential_accel = 100.0
 tangential_accel_random = 1.0
 scale = 0.3
-scale_curve = SubResource( 7 )
+scale_curve = SubResource( 18 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.582915, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0.518072, 1 ), 0.0, -3.53434, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=10]
 flag_disable_z = true
 spread = 50.0
 gravity = Vector3( 0, 0, 0 )
@@ -60,8 +74,8 @@ initial_velocity = 300.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.5
-scale_curve = SubResource( 4 )
-color_ramp = SubResource( 2 )
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
 
 [node name="LaserBeam2D" type="RayCast2D"]
 enabled = true
@@ -79,14 +93,18 @@ end_cap_mode = 2
 sharp_limit = 8.0
 antialiased = true
 
+[node name="ColorSwitch" parent="FillLine2D" instance=ExtResource( 4 )]
+line_path = NodePath("..")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="FillLine2D"]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 3 )
+node_path = NodePath(".")
 line_path = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FillLine2D/StaticBody2D"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="CastingParticles2D" type="Particles2D" parent="."]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
@@ -95,7 +113,7 @@ emitting = false
 lifetime = 0.3
 visibility_rect = Rect2( 0, -18.722, 29.6756, 38.4841 )
 local_coords = false
-process_material = SubResource( 5 )
+process_material = SubResource( 16 )
 texture = ExtResource( 2 )
 
 [node name="BeamParticles2D" type="Particles2D" parent="."]
@@ -107,7 +125,7 @@ randomness = 1.0
 visibility_rect = Rect2( -2500, -2500, 5000, 5000 )
 local_coords = false
 draw_order = 1
-process_material = SubResource( 8 )
+process_material = SubResource( 19 )
 texture = ExtResource( 2 )
 
 [node name="CollisionParticles2D" type="Particles2D" parent="."]
@@ -118,7 +136,7 @@ amount = 16
 lifetime = 0.3
 visibility_rect = Rect2( -2500, -2500, 5000, 5000 )
 local_coords = false
-process_material = SubResource( 9 )
+process_material = SubResource( 10 )
 texture = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]

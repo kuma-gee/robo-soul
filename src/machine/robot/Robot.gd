@@ -12,7 +12,7 @@ onready var machine := $SoulessMachine
 var _auto_move := Vector2.ZERO
 
 func _set_online(value: bool) -> void:
-	$SoulessMachine.online = value
+	$SoulessMachine.start_online = value
 
 func _physics_process(delta):
 	var motion = Vector2.ZERO

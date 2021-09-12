@@ -21,6 +21,7 @@ onready var casting_particles := $CastingParticles2D
 onready var collision_particles := $CollisionParticles2D
 onready var beam_particles := $BeamParticles2D
 onready var static_body := $FillLine2D/StaticBody2D
+onready var color_switch := $FillLine2D/ColorSwitch
 
 onready var line_width: float = fill.width
 
@@ -69,6 +70,7 @@ func cast_beam() -> void:
 	beam_particles.process_material.emission_box_extents.x = cast_point.length() * 0.5
 	
 	static_body.update()
+	color_switch.update()
 
 
 func appear() -> void:
@@ -77,7 +79,7 @@ func appear() -> void:
 	tween.interpolate_property(fill, "width", 0, line_width, growth_time * 2)
 	tween.start()
 	static_body.enable(true)
-
+	color_switch.enable(true)
 
 func disappear() -> void:
 	if tween.is_active():
@@ -85,19 +87,18 @@ func disappear() -> void:
 	tween.interpolate_property(fill, "width", fill.width, 0, growth_time)
 	tween.start()
 	static_body.enable(false)
+	color_switch.enable(false)
 
 func change_color(c: int) -> void:
 	var color = Soul.get_color(c)
 	
 	fill.default_color = color
 	beam_particles.process_material.set("color", color)
-	
-	var gradient_tex = casting_particles.process_material.get("color_ramp") as GradientTexture
-	var gradient = gradient_tex.get("gradient")
-	var color_pool = gradient.get("colors")
-	if color_pool.size() > 0:
-		color_pool[0] = color
+	casting_particles.modulate = color
+	collision_particles.modulate = color
 	
 	static_body.collision_layer = 0
 	static_body.set_collision_layer_bit(Soul.get_color_layer_bit(c), true)
+	
+	color_switch.color = c
 

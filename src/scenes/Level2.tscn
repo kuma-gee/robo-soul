@@ -3,7 +3,7 @@
 [ext_resource path="res://src/map/Tiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/map/ChangeScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/machine/robot/Robot.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/scenes/AutoMove.gd" type="Script" id=5]
+[ext_resource path="res://src/scenes/AutoMove.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/machine/switch/Switch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/map/Laser.tscn" type="PackedScene" id=7]
 
@@ -28,10 +28,7 @@ position = Vector2( 1590.5, 783.006 )
 position = Vector2( -80.6623, 799.405 )
 online = true
 
-[node name="AutoMove" type="VisibilityNotifier2D" parent="Robot"]
-position = Vector2( -204.667, 8.49152 )
-script = ExtResource( 5 )
-robot_path = NodePath("..")
+[node name="AutoMove" parent="Robot" instance=ExtResource( 4 )]
 
 [node name="Switch" parent="." instance=ExtResource( 6 )]
 position = Vector2( 366.32, 455 )

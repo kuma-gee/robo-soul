@@ -16,15 +16,15 @@ position = Vector2( 40, 33.7593 )
 
 [node name="TrackBack" parent="Body/Sprites" index="0"]
 position = Vector2( -12, 0 )
-frame = 1
 
 [node name="Body" parent="Body/Sprites" index="1"]
-position = Vector2( -40, -49.062 )
+modulate = Color( 1, 1, 1, 1 )
+position = Vector2( -40, -50 )
 texture = ExtResource( 2 )
+frame = 0
 
 [node name="TrackFront" parent="Body/Sprites" index="2"]
 position = Vector2( -68, 0 )
-frame = 1
 
 [node name="SoulessMachine" parent="." index="7"]
 accept_color = 1

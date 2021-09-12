@@ -14,3 +14,4 @@ func _ready():
 func _entered() -> void:
 	robot.set_auto_move(Vector2.ZERO)
 	emit_signal("finished")
+	queue_free()

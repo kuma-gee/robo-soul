@@ -294,6 +294,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/shared/gui/SelectOption.gd"
 }, {
+"base": "Component",
+"class": "SimpleLineCollision2D",
+"language": "GDScript",
+"path": "res://src/shared/misc/SimpleLineCollision2D.gd"
+}, {
 "base": "Reference",
 "class": "SimpleMove2D",
 "language": "GDScript",
@@ -447,6 +452,7 @@ _global_script_class_icons={
 "SceneResource": "",
 "SceneTest": "",
 "SelectOption": "",
+"SimpleLineCollision2D": "",
 "SimpleMove2D": "",
 "SoftCollision2D": "",
 "Soul": "",
@@ -660,6 +666,7 @@ reload_scene={
 3d_physics/layer_3="enemy"
 2d_physics/layer_4="enemy_hurtbox"
 2d_physics/layer_5="enemy"
+2d_physics/layer_6="color_switch"
 2d_physics/layer_7="soft_collision"
 2d_physics/layer_8="machine"
 2d_physics/layer_9="laser_red"
