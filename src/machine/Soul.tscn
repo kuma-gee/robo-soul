@@ -106,7 +106,6 @@ margin_left = 956.0
 margin_top = -8.0
 margin_right = 964.0
 margin_bottom = 8.0
-text = "0"
 script = ExtResource( 5 )
 relative_font_size = 3.0
 

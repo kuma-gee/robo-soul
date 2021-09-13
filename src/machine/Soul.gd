@@ -3,6 +3,7 @@ class_name Soul extends KinematicBody2D
 enum ColorType {
 	RED,
 	GREEN,
+	ALL,
 }
 
 onready var bounce := $Bounce2D
@@ -34,10 +35,12 @@ func _process(delta):
 
 func _on_Area2D_area_entered(body):
 	if not body.has_method("is_online") or body.is_online(): return
-	if not body.has_method("get_accepting_color") or body.get_accepting_color() != _color: return
 	
-	body.online = true
-	queue_free()
+	if body.has_method("get_accepting_color"):
+		var color = body.get_accepting_color()
+		if color == ColorType.ALL or color == _color:
+			body.online = true
+			queue_free()
 
 
 static func get_color(c: int) -> Color:

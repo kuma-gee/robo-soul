@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/machine/SoulessMachine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/machine/soul.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.8221
+
+[node name="FinalMachine" type="Node2D"]
+
+[node name="SoulessMachine" parent="." instance=ExtResource( 1 )]
+visible = false
+accept_color = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoulessMachine"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )

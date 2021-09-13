@@ -1,13 +1,15 @@
 class_name SoulessMachine extends Area2D
 
-export(Soul.ColorType) var accept_color = Soul.ColorType.RED
+signal online()
+
+export(Soul.ColorType) var accept_color := Soul.ColorType.RED
 export var flick_force := 1.0
 
 export var flick_path: NodePath
-onready var flick: Node2D = get_node(flick_path)
+onready var flick: Node2D = get_node(flick_path) if flick_path else null
 
 export var anim_path: NodePath
-onready var anim: AnimationPlayer = get_node(anim_path)
+onready var anim: AnimationPlayer = get_node(anim_path) if anim_path else null
 
 export var online := false setget _set_online
 
@@ -17,16 +19,22 @@ var start_online := false
 var _transitioning := false
 
 func _ready():
-	anim.connect("animation_finished", self, "_on_finished")
-	flick.connect("flicked", self, "_on_FlickArea_flicked")
-	flick.set_color(Soul.get_color(accept_color))
+	if anim:
+		anim.connect("animation_finished", self, "_on_finished")
+	if flick:
+		flick.connect("flicked", self, "_on_FlickArea_flicked")
+		flick.set_color(Soul.get_color(accept_color))
 
 func _set_online(value: bool) -> void:
-	_transitioning = true
-	if value:
-		get_node(anim_path).play("Online")
+	if anim_path:
+		_transitioning = true
+		if value:
+			get_node(anim_path).play("Online")
+		else:
+			get_node(anim_path).play("Offline")
 	else:
-		get_node(anim_path).play("Offline")
+		online = value
+		emit_signal("online")
 
 func is_online() -> bool:
 	return online or _transitioning
