@@ -1,10 +1,13 @@
 extends Timer
 
+export var container_path: NodePath
+onready var container := get_node(container_path)
+
 export var label_path: NodePath
 onready var label := get_node(label_path)
 
 func _ready():
-	label.hide()
+	container.hide()
 	connect("timeout", self, "_on_timeout")
 
 func _process(delta):
@@ -14,11 +17,11 @@ func _process(delta):
 	label.text = str(time)
 
 func start(time: float = -1):
-	label.show()
+	container.show()
 	.start(time)
 
 func stop():
-	label.hide()
+	container.hide()
 	.stop()
 
 func _on_timeout():

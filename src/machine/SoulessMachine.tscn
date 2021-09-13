@@ -6,4 +6,4 @@
 collision_layer = 128
 collision_mask = 0
 script = ExtResource( 1 )
-flick_force = 45.0
+flick_force = 30.0

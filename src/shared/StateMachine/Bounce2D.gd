@@ -15,8 +15,8 @@ func set_initial_velocity(vel: Vector2):
 
 func _physics_process(delta):
 	
-	velocity = velocity.move_toward(Vector2.ZERO, 20 * delta)
-	velocity = velocity.move_toward(velocity + max_gravity, 70 * delta)
+	velocity = velocity.move_toward(Vector2.ZERO, 5 * delta)
+	velocity = velocity.move_toward(velocity + max_gravity, 30 * delta)
 
 	var collision = get_body().move_and_collide(velocity)
 	if collision:
