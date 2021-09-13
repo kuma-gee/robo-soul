@@ -1,10 +1,10 @@
-## Suicide Hero
+## Robo Soul ?
 
-For the Godot Wild Jam #36
+For the Godot Wild Jam #37
 
 ## Credits
- - [Wall/Floors](https://safwyl.itch.io/16x16-dungeon-autotile-remix)
- - [Characters/Items](https://0x72.itch.io/dungeontileset-ii)
+ - [Robots](https://kenney.nl/assets/robot-pack)
+ - [Platforms](https://kenney.nl/assets/platformer-art-requests)
  - [Font](https://www.fontspace.com/unifont-font-f26370)
 
 
