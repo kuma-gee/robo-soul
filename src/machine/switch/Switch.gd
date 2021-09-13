@@ -9,7 +9,8 @@ onready var machine := $SoulessMachine
 
 func _ready():
 	_update_laser()
-	laser.change_color(machine.accept_color)
+	if laser:
+		laser.change_color(machine.accept_color)
 
 func _process(_delta):
 	if not machine.is_fully_online(): return
@@ -31,5 +32,5 @@ func is_enabled() -> bool:
 	return sprite.frame == 1
 
 func _update_laser() -> void:
-	if laser.is_casting == is_enabled(): return
+	if laser == null or laser.is_casting == is_enabled(): return
 	laser.is_casting = is_enabled()

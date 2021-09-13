@@ -3,6 +3,8 @@ class_name Soul extends KinematicBody2D
 enum ColorType {
 	RED,
 	GREEN,
+	YELLOW,
+	BLUE,
 	ALL,
 }
 
@@ -46,7 +48,9 @@ func _on_Area2D_area_entered(body):
 static func get_color(c: int) -> Color:
 	match c:
 		ColorType.RED: return Color("#e9895e")
-		ColorType.GREEN: return Color("#70d08f")
+		ColorType.GREEN: return Color("#73cd4b")
+		ColorType.BLUE: return Color("#1ea7e1")
+		ColorType.YELLOW: return Color("#ffcc00")
 	
 	return Color.white
 

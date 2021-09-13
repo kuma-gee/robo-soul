@@ -39,7 +39,7 @@ tracks/1/keys = {
 "values": [ 0, 1, 0, 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Body/Sprites/Body:position")
+tracks/2/path = NodePath("Body/Sprites/Node2D/Body:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -51,7 +51,7 @@ tracks/2/keys = {
 "values": [ Vector2( -40, -50 ), Vector2( -40, -45 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Body/Sprites/Body:frame")
+tracks/3/path = NodePath("Body/Sprites/Node2D/Body:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -63,7 +63,7 @@ tracks/3/keys = {
 "values": [ 0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Body/Sprites/Body:modulate")
+tracks/4/path = NodePath("Body/Sprites/Node2D/Body:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -79,7 +79,7 @@ tracks/4/keys = {
 resource_name = "Offline"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Body/Sprites/Body:position")
+tracks/0/path = NodePath("Body/Sprites/Node2D/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -91,7 +91,7 @@ tracks/0/keys = {
 "values": [ Vector2( -40, -50 ), Vector2( -40, -30 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprites/Body:frame")
+tracks/1/path = NodePath("Body/Sprites/Node2D/Body:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -103,7 +103,7 @@ tracks/1/keys = {
 "values": [ 0, 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Body/Sprites/Body:modulate")
+tracks/2/path = NodePath("Body/Sprites/Node2D/Body:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -119,7 +119,7 @@ tracks/2/keys = {
 resource_name = "Online"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Body/Sprites/Body:position")
+tracks/0/path = NodePath("Body/Sprites/Node2D/Body:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -131,7 +131,7 @@ tracks/0/keys = {
 "values": [ Vector2( -40, -30 ), Vector2( -40, -50 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprites/Body:frame")
+tracks/1/path = NodePath("Body/Sprites/Node2D/Body:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -143,7 +143,7 @@ tracks/1/keys = {
 "values": [ 1, 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Body/Sprites/Body:modulate")
+tracks/2/path = NodePath("Body/Sprites/Node2D/Body:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -159,7 +159,7 @@ tracks/2/keys = {
 resource_name = "Start"
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Body/Sprites/Body:modulate")
+tracks/0/path = NodePath("Body/Sprites/Node2D/Body:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -171,7 +171,7 @@ tracks/0/keys = {
 "values": [ Color( 0.666667, 0.666667, 0.666667, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprites/Body:frame")
+tracks/1/path = NodePath("Body/Sprites/Node2D/Body:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -183,7 +183,7 @@ tracks/1/keys = {
 "values": [ 1 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Body/Sprites/Body:position")
+tracks/2/path = NodePath("Body/Sprites/Node2D/Body:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -225,18 +225,20 @@ position = Vector2( 40, 41.7593 )
 [node name="TrackBack" type="Sprite" parent="Body/Sprites"]
 texture = ExtResource( 3 )
 hframes = 2
+frame = 1
 
-[node name="Body" type="Sprite" parent="Body/Sprites"]
-modulate = Color( 0.666667, 0.666667, 0.666667, 1 )
-position = Vector2( -40, -30 )
+[node name="Node2D" type="Node2D" parent="Body/Sprites"]
+
+[node name="Body" type="Sprite" parent="Body/Sprites/Node2D"]
+position = Vector2( -40, -48.9425 )
 texture = ExtResource( 9 )
 hframes = 2
-frame = 1
 
 [node name="TrackFront" type="Sprite" parent="Body/Sprites"]
 position = Vector2( -80, 0 )
 texture = ExtResource( 3 )
 hframes = 2
+frame = 1
 
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource( 1 )
