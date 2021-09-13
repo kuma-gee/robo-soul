@@ -17,3 +17,6 @@ position = Vector2( 1712.09, 798.622 )
 
 [node name="Robot1" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 192.822, 797.745 )
+
+[node name="CollisionShape2D" parent="CloseDoorTrigger" index="0"]
+disabled = true

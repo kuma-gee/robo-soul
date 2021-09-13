@@ -155,7 +155,7 @@ tracks/2/keys = {
 "values": [ Color( 0.666667, 0.666667, 0.666667, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 resource_name = "Start"
 length = 0.1
 tracks/0/type = "value"
@@ -198,14 +198,14 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 87.419, 71.9322 )
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=6]
 radius = 39.7851
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 48.7497, 39.1803 )
 
 [node name="RobotRed" type="KinematicBody2D"]
-collision_layer = 0
+collision_layer = 128
 script = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -213,7 +213,7 @@ autoplay = "Start"
 anims/Move = SubResource( 1 )
 anims/Offline = SubResource( 2 )
 anims/Online = SubResource( 3 )
-anims/Start = SubResource( 8 )
+anims/Start = SubResource( 4 )
 
 [node name="Body" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -254,7 +254,7 @@ node_path = NodePath("../Body")
 [node name="FlickArea" parent="." instance=ExtResource( 5 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlickArea"]
-shape = SubResource( 9 )
+shape = SubResource( 6 )
 
 [node name="SoulessMachine" parent="." instance=ExtResource( 2 )]
 flick_path = NodePath("../FlickArea")
