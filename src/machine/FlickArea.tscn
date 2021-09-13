@@ -17,6 +17,10 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
+[node name="FireRateTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="mouse_move" from="MouseHover" to="." method="_on_MouseHover_mouse_move"]
 [connection signal="mouse_pressed" from="MouseHover" to="." method="_on_MouseHover_mouse_pressed"]
 [connection signal="mouse_released" from="MouseHover" to="." method="_on_MouseHover_mouse_released"]
+[connection signal="timeout" from="FireRateTimer" to="." method="_on_FireRateTimer_timeout"]

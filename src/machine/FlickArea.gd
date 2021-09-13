@@ -7,19 +7,26 @@ export var min_length := 30
 
 onready var line := $Line
 onready var mouse := $MouseHover
+onready var timer := $FireRateTimer
 
+var can_fire := true
 var press_pos
 
 func set_enabled(value: bool) -> void:
 	mouse.enabled = value
 
-func _on_MouseHover_mouse_pressed(_pos: Vector2):
-	press_pos = _to_local_pos(global_position)
-	line.add_point(press_pos)
+func _on_MouseHover_mouse_pressed(pos: Vector2):
+	if not can_fire: return
+	
+	press_pos = _to_local_pos(pos)
+	line.add_point(_to_local_pos(global_position))
+	can_fire = false
 
 
 func _on_MouseHover_mouse_released(pos: Vector2):
 	line.clear_points()
+	
+	if not press_pos: return
 
 	var dir: Vector2 = _get_arrow_dir(pos)
 	if dir.length() >= min_length:
@@ -28,9 +35,12 @@ func _on_MouseHover_mouse_released(pos: Vector2):
 		emit_signal("flicked", normalized)
 	
 	press_pos = null
+	timer.start()
 
 func _on_MouseHover_mouse_move(pos: Vector2):
-	var arrow_tip = press_pos + _get_arrow_dir(pos)
+	if not press_pos: return
+	
+	var arrow_tip = _to_local_pos(global_position) + _get_arrow_dir(pos)
 	
 	if line.points.size() < 2:
 		line.add_point(arrow_tip)
@@ -48,3 +58,7 @@ func _to_local_pos(global_pos: Vector2) -> Vector2:
 
 func set_color(color: Color) -> void:
 	line.default_color = color
+
+
+func _on_FireRateTimer_timeout():
+	can_fire = true
