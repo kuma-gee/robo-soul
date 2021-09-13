@@ -6,6 +6,7 @@ enum ColorType {
 }
 
 onready var bounce := $Bounce2D
+onready var timer := $Timer
 
 export(ColorType) var _color: int = ColorType.RED
 
@@ -24,6 +25,11 @@ func update_color(c: int = _color) -> void:
 
 func apply_initial_velocity(vel: Vector2) -> void:
 	bounce.set_initial_velocity(vel)
+
+
+func _process(delta):
+	if bounce.velocity.length() < 0.5 and timer.is_stopped():
+		timer.start()
 
 
 func _on_Area2D_area_entered(body):
@@ -51,3 +57,7 @@ static func get_color_layer_bit(c: int) -> int:
 
 func _on_ColorSwitchDetector_area_exited(area):
 	update_color(area.color)
+
+
+func _on_Timer_timeout():
+	GUI.open_menu(GUI.GameOver, true)
