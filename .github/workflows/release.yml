@@ -14,7 +14,7 @@ jobs:
       matrix:
         channel: [win, linux, mac, web] # Remove channel if not releasing (Available: win, linux, mac, web)
     env:
-      GAME: suicide-hero # Change game name
+      GAME: robo-soul # Change game name
       CHANNEL: ${{matrix.channel}}
     steps:
       - uses: actions/checkout@v1
