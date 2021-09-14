@@ -9,8 +9,7 @@ radius = 20.8221
 [node name="FinalMachine" type="Node2D"]
 
 [node name="SoulessMachine" parent="." instance=ExtResource( 1 )]
-visible = false
-accept_color = 2
+accept_color = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoulessMachine"]
 shape = SubResource( 1 )

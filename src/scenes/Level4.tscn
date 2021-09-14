@@ -30,10 +30,14 @@ online = true
 
 [node name="SwitchGreen" parent="." index="7" instance=ExtResource( 5 )]
 position = Vector2( 1046.62, 385.973 )
+collision_layer = 1
+collision_mask = 1
 laser_path = NodePath("../TopLaser")
 
 [node name="SwitchYellow" parent="." index="8" instance=ExtResource( 7 )]
 position = Vector2( 192.119, 595.257 )
+collision_layer = 1
+collision_mask = 1
 laser_path = NodePath("../GoalLaser")
 
 [node name="RobotRed" parent="." index="9" instance=ExtResource( 6 )]

@@ -41,13 +41,15 @@ tracks/0/keys = {
 "values": [ Color( 0.666667, 0.666667, 0.666667, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=4]
 radius = 32.3835
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 41.4465
+[sub_resource type="CircleShape2D" id=5]
+radius = 39.7731
 
 [node name="Switch" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -70,11 +72,11 @@ script = ExtResource( 1 )
 position = Vector2( 0, 5.03969 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlickArea"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="SoulessMachine" parent="." instance=ExtResource( 4 )]
 flick_path = NodePath("../FlickArea")
 anim_path = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoulessMachine"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )

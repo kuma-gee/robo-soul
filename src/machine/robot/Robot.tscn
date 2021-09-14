@@ -196,7 +196,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 87.419, 71.9322 )
+extents = Vector2( 87.419, 70.0777 )
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 39.7851
@@ -230,7 +230,7 @@ frame = 1
 [node name="Node2D" type="Node2D" parent="Body/Sprites"]
 
 [node name="Body" type="Sprite" parent="Body/Sprites/Node2D"]
-position = Vector2( -40, -48.9425 )
+position = Vector2( -40, -50 )
 texture = ExtResource( 9 )
 hframes = 2
 

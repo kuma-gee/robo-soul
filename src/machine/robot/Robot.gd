@@ -8,6 +8,7 @@ onready var gravity := $Gravity2D
 onready var turn := $TurnMotion2D
 onready var anim := $AnimationPlayer
 onready var machine := $SoulessMachine
+onready var flick := $FlickArea
 
 var _auto_move := Vector2.ZERO
 
@@ -18,6 +19,8 @@ func _physics_process(delta):
 	var motion = Vector2.ZERO
 	
 	if machine.is_fully_online():
+		flick.set_enabled(not _is_auto_moving())
+		
 		motion = _get_motion()
 		if motion.length() > 0.01:
 			anim.play("Move")
@@ -29,7 +32,7 @@ func _physics_process(delta):
 	move.motion = motion
 
 func _get_motion() -> Vector2:
-	if _auto_move.length() != 0:
+	if _is_auto_moving():
 		return _auto_move
 	
 	return Vector2(
@@ -39,3 +42,6 @@ func _get_motion() -> Vector2:
 
 func set_auto_move(dir: Vector2) -> void:
 	_auto_move = dir
+	
+func _is_auto_moving() -> bool:
+	return _auto_move.length() != 0
