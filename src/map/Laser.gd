@@ -29,6 +29,8 @@ onready var line_width: float = fill.width
 func _ready() -> void:
 	set_physics_process(false)
 	fill.points[1] = Vector2.ZERO
+	
+	beam_particles.process_material = beam_particles.process_material.duplicate()
 
 
 func _physics_process(delta: float) -> void:

@@ -27,9 +27,5 @@ texture = ExtResource( 2 )
 [node name="TrackFront" parent="Body/Sprites" index="2"]
 position = Vector2( -68, 0 )
 
-[node name="FlickArea" parent="." index="6"]
-visible = false
-
 [node name="SoulessMachine" parent="." index="7"]
-visible = false
 accept_color = 1

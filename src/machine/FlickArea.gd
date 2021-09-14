@@ -30,6 +30,7 @@ func _on_MouseHover_mouse_released(pos: Vector2):
 
 	var dir: Vector2 = _get_arrow_dir(pos)
 	if dir.length() >= min_length:
+		dir = dir.rotated(global_rotation)
 		var length_ratio = dir.length() / max_length
 		var normalized = dir.normalized() * length_ratio
 		emit_signal("flicked", normalized)
@@ -54,7 +55,11 @@ func _get_arrow_dir(global_pos: Vector2) -> Vector2:
 	return dir * dist
 	
 func _to_local_pos(global_pos: Vector2) -> Vector2:
-	return global_pos - global_position
+	var local: Vector2 = global_pos - global_position
+	
+	local = local.rotated(-global_rotation)
+	
+	return local
 
 func set_color(color: Color) -> void:
 	line.default_color = color

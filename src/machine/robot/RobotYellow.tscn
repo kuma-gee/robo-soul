@@ -7,3 +7,6 @@
 
 [node name="Body" parent="Body/Sprites/Node2D" index="0"]
 texture = ExtResource( 2 )
+
+[node name="SoulessMachine" parent="." index="7"]
+accept_color = 2
