@@ -117,7 +117,7 @@ margin_right = 72.0
 margin_bottom = 42.0
 align = 1
 script = ExtResource( 5 )
-relative_font_size = 3.0
+relative_font_size = 2.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="MachineDetector" to="." method="_on_Area2D_area_entered"]

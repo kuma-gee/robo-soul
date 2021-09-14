@@ -56,8 +56,8 @@ static func get_color(c: int) -> Color:
 
 static func get_color_layer_bit(c: int) -> int:
 	match c:
-		ColorType.RED: return 9
-		ColorType.GREEN: return 10
+		ColorType.RED: return 8
+		ColorType.GREEN: return 9
 		ColorType.YELLOW: return 10
 		ColorType.BLUE: return 11
 	

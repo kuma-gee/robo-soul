@@ -21,7 +21,6 @@ position = Vector2( -12, 0 )
 modulate = Color( 0.721569, 0.992157, 0.537255, 1 )
 
 [node name="Body" parent="Body/Sprites/Node2D" index="0"]
-position = Vector2( -40, -50 )
 texture = ExtResource( 2 )
 
 [node name="TrackFront" parent="Body/Sprites" index="2"]
