@@ -11,8 +11,11 @@ For the Godot Wild Jam #37
 ## Development
 
 Commit Types:
- - fix
- - feat
- - polish
- - chore
- - refactor
+ - fix: fixing a bug
+ - feat: adding or updating a new/existing feature
+ - polish: doing little tweaks or adjustments to improve the game
+ - refactor: refactoring some code
+ - docs: updating documentation
+ - test: updating or adding tests
+ - ci: CI related changes
+ - chore: doing some miscellaneous things that cannot be categorized in any other (avoid if possible)
