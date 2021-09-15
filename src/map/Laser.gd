@@ -22,6 +22,7 @@ onready var collision_particles := $CollisionParticles2D
 onready var beam_particles := $BeamParticles2D
 onready var static_body := $FillLine2D/StaticBody2D
 onready var color_switch := $FillLine2D/ColorSwitch
+onready var laser_sound := $LaserSound
 
 onready var line_width: float = fill.width
 
@@ -73,6 +74,9 @@ func cast_beam() -> void:
 	
 	static_body.update()
 	color_switch.update()
+	
+	if not laser_sound.playing:
+		laser_sound.playing = true
 
 
 func appear() -> void:
@@ -90,6 +94,7 @@ func disappear() -> void:
 	tween.start()
 	static_body.enable(false)
 	color_switch.enable(false)
+	laser_sound.playing = false
 
 func change_color(c: int) -> void:
 	var color = Soul.get_color(c)

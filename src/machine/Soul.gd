@@ -11,6 +11,8 @@ enum ColorType {
 onready var bounce := $Bounce2D
 onready var timer := $Timer
 
+onready var wall_impact := $WallImpactSound
+
 export(ColorType) var _color: int = ColorType.RED
 
 func _ready():
@@ -70,3 +72,7 @@ func _on_ColorSwitchDetector_area_exited(area):
 
 func _on_Timer_timeout():
 	GUI.open_menu(GUI.GameOver, true)
+
+
+func _on_Bounce2D_bounced():
+	wall_impact.play()

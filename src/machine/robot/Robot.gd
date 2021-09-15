@@ -9,6 +9,7 @@ onready var turn := $TurnMotion2D
 onready var anim := $AnimationPlayer
 onready var machine := $SoulessMachine
 onready var flick := $FlickArea
+onready var move_sound := $MoveSound
 
 var _auto_move := Vector2.ZERO
 
@@ -23,9 +24,12 @@ func _physics_process(delta):
 		
 		motion = _get_motion()
 		if motion.length() > 0.01:
-			anim.play("Move")
+			if not anim.is_playing():
+				anim.play("Move")
+				move_sound.play()
 		else:
 			anim.stop()
+			move_sound.stop()
 	
 	turn.motion = motion
 	motion = gravity.apply_gravity(motion, delta)

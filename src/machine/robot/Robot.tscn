@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/shared/input/PlayerInput.gd" type="Script" id=1]
 [ext_resource path="res://src/machine/SoulessMachine.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://src/shared/StateMachine/Gravity2D.gd" type="Script" id=7]
 [ext_resource path="res://src/shared/misc/TurnMotion2D.gd" type="Script" id=8]
 [ext_resource path="res://src/machine/robot/robotRed.png" type="Texture" id=9]
+[ext_resource path="res://src/machine/robot/robot-move.wav" type="AudioStream" id=10]
+[ext_resource path="res://src/machine/robot/robot-online.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Move"
@@ -114,6 +116,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.666667, 0.666667, 0.666667, 1 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("OnlineSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Online"
@@ -153,6 +167,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0.666667, 0.666667, 0.666667, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("OnlineSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -225,7 +251,6 @@ position = Vector2( 40, 41.7593 )
 [node name="TrackBack" type="Sprite" parent="Body/Sprites"]
 texture = ExtResource( 3 )
 hframes = 2
-frame = 1
 
 [node name="Node2D" type="Node2D" parent="Body/Sprites"]
 
@@ -238,7 +263,6 @@ hframes = 2
 position = Vector2( -80, 0 )
 texture = ExtResource( 3 )
 hframes = 2
-frame = 1
 
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -264,3 +288,13 @@ anim_path = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoulessMachine"]
 shape = SubResource( 7 )
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+bus = "SFX"
+
+[node name="OnlineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -15.0
+bus = "SFX"

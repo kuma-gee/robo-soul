@@ -1,40 +1,41 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/map/Laser.gd" type="Script" id=1]
 [ext_resource path="res://src/machine/soul.png" type="Texture" id=2]
 [ext_resource path="res://src/shared/misc/SimpleLineCollision2D.gd" type="Script" id=3]
 [ext_resource path="res://src/map/ColorSwitch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/map/laser.wav" type="AudioStream" id=5]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.582915, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0.518072, 1 ), 0.0, -3.53434, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=5]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 100.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.5
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=6]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.503614, 0.957505 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
-curve = SubResource( 7 )
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 2
 emission_box_extents = Vector3( 60, 20, 1 )
 flag_align_y = true
@@ -48,22 +49,22 @@ orbit_velocity_random = 0.0
 tangential_accel = 100.0
 tangential_accel_random = 1.0
 scale = 0.3
-scale_curve = SubResource( 8 )
+scale_curve = SubResource( 7 )
 
-[sub_resource type="Gradient" id=10]
+[sub_resource type="Gradient" id=9]
 offsets = PoolRealArray( 0.582915, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=11]
-gradient = SubResource( 10 )
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
 
-[sub_resource type="Curve" id=12]
+[sub_resource type="Curve" id=11]
 _data = [ Vector2( 0.518072, 1 ), 0.0, -3.53434, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=13]
-curve = SubResource( 12 )
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
 
-[sub_resource type="ParticlesMaterial" id=14]
+[sub_resource type="ParticlesMaterial" id=13]
 flag_disable_z = true
 spread = 50.0
 gravity = Vector3( 0, 0, 0 )
@@ -71,8 +72,8 @@ initial_velocity = 300.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.5
-scale_curve = SubResource( 13 )
-color_ramp = SubResource( 11 )
+scale_curve = SubResource( 12 )
+color_ramp = SubResource( 10 )
 
 [node name="LaserBeam2D" type="RayCast2D"]
 enabled = true
@@ -110,7 +111,7 @@ emitting = false
 lifetime = 0.3
 visibility_rect = Rect2( 0, -18.722, 29.6756, 38.4841 )
 local_coords = false
-process_material = SubResource( 6 )
+process_material = SubResource( 5 )
 texture = ExtResource( 2 )
 
 [node name="BeamParticles2D" type="Particles2D" parent="."]
@@ -122,7 +123,7 @@ randomness = 1.0
 visibility_rect = Rect2( -2500, -2500, 5000, 5000 )
 local_coords = false
 draw_order = 1
-process_material = SubResource( 9 )
+process_material = SubResource( 8 )
 texture = ExtResource( 2 )
 
 [node name="CollisionParticles2D" type="Particles2D" parent="."]
@@ -133,7 +134,12 @@ amount = 16
 lifetime = 0.3
 visibility_rect = Rect2( -2500, -2500, 5000, 5000 )
 local_coords = false
-process_material = SubResource( 14 )
+process_material = SubResource( 13 )
 texture = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="LaserSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+bus = "SFX"
