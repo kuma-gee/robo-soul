@@ -1,10 +1,13 @@
 extends Node2D
 
+export var enable_bgm := true
+
 onready var door_anim := $Door/AnimationPlayer
 onready var bgm := $BGM
 
 func _ready():
-	bgm.play()
+	if enable_bgm:
+		bgm.play()
 
 func _on_TileMap_soul_exited():
 	GUI.open_menu(GUI.GameOver, true)

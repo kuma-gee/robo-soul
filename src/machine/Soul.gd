@@ -12,8 +12,6 @@ onready var bounce := $Bounce2D
 onready var zero_vel_timer := $ZeroVelocityTimer
 onready var timer := $Timer
 
-onready var wall_impact := $WallImpactSound
-
 export(ColorType) var _color: int = ColorType.RED
 
 func _ready():
@@ -75,9 +73,3 @@ func _on_ColorSwitchDetector_area_exited(area):
 
 func _on_Timer_timeout():
 	GUI.open_menu(GUI.GameOver, true)
-
-
-func _on_Bounce2D_bounced():
-	if bounce.velocity.length() > 1:
-		print(bounce.velocity.length())
-		wall_impact.play()
