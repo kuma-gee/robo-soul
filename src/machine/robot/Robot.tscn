@@ -291,10 +291,10 @@ shape = SubResource( 7 )
 
 [node name="MoveSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -10.0
+volume_db = -15.0
 bus = "SFX"
 
 [node name="OnlineSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -15.0
+volume_db = -25.0
 bus = "SFX"

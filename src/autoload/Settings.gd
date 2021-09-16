@@ -42,7 +42,7 @@ func _load_general_settings():
 func _load_audio_settings():
 	for i in range(0, AudioServer.bus_count):
 		var name = AudioServer.get_bus_name(i)
-		var value = _config.get_value(AUDIO_SECTION, name)
+		var value = _config.get_value(AUDIO_SECTION, name, null)
 		if value != null:
 			AudioServer.set_bus_volume_db(i, value)
 

@@ -1,6 +1,10 @@
 extends Node2D
 
 onready var door_anim := $Door/AnimationPlayer
+onready var bgm := $BGM
+
+func _ready():
+	bgm.play()
 
 func _on_TileMap_soul_exited():
 	GUI.open_menu(GUI.GameOver, true)
