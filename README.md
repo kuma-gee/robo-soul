@@ -6,6 +6,10 @@ For the Godot Wild Jam #37
  - [Robots](https://kenney.nl/assets/robot-pack)
  - [Platforms](https://kenney.nl/assets/platformer-art-requests)
  - [Font](https://www.fontspace.com/unifont-font-f26370)
+ - Sounds:
+    - [Online/Offline(modified)](https://freesound.org/people/LittleRobotSoundFactory/sounds/316277/)
+    - [Move(modified)](https://freesound.org/people/Tomlija/sounds/110108/)
+    - Other sounds are from a humble bundle that I bought from [gamedevmarket](https://www.gamedevmarket.net/)
 
 
 ## Development

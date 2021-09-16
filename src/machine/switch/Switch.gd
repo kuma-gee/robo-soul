@@ -6,6 +6,7 @@ onready var laser: Laser = get_node(laser_path)
 onready var input := $PlayerInput
 onready var sprite := $Sprite
 onready var machine := $SoulessMachine
+onready var sound := $SwitchSound
 
 func _ready():
 	_update_laser()
@@ -23,10 +24,12 @@ func _process(_delta):
 func enable() -> void:
 	sprite.frame = 1
 	_update_laser()
+	sound.play()
 	
 func disable() -> void:
 	sprite.frame = 0
 	_update_laser()
+	sound.play()
 
 func is_enabled() -> bool:
 	return sprite.frame == 1

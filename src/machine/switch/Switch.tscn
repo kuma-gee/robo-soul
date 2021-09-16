@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/shared/input/PlayerInput.gd" type="Script" id=1]
 [ext_resource path="res://src/machine/switch/switch.png" type="Texture" id=2]
 [ext_resource path="res://src/machine/switch/Switch.gd" type="Script" id=3]
 [ext_resource path="res://src/machine/SoulessMachine.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/machine/FlickArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/machine/switch/switch.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 34.1092, 27.4898 )
@@ -56,7 +57,6 @@ script = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.666667, 0.666667, 0.666667, 1 )
 texture = ExtResource( 2 )
 hframes = 2
 frame = 1
@@ -80,3 +80,6 @@ anim_path = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoulessMachine"]
 shape = SubResource( 5 )
+
+[node name="SwitchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
