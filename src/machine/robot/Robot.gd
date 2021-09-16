@@ -23,6 +23,7 @@ func _physics_process(delta):
 		flick.set_enabled(not _is_auto_moving())
 		
 		motion = _get_motion()
+		move_sound.set_volume(motion)
 		if motion.length() > 0.01:
 			if not anim.is_playing():
 				anim.play("Move")
