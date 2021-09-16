@@ -126,7 +126,12 @@ stream = ExtResource( 7 )
 volume_db = -20.0
 bus = "SFX"
 
+[node name="ZeroVelocityTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="bounced" from="Bounce2D" to="." method="_on_Bounce2D_bounced"]
 [connection signal="area_entered" from="MachineDetector" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="ColorSwitchDetector" to="." method="_on_ColorSwitchDetector_area_exited"]
+[connection signal="timeout" from="ZeroVelocityTimer" to="Timer" method="start"]

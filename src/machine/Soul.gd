@@ -9,6 +9,7 @@ enum ColorType {
 }
 
 onready var bounce := $Bounce2D
+onready var zero_vel_timer := $ZeroVelocityTimer
 onready var timer := $Timer
 
 onready var wall_impact := $WallImpactSound
@@ -33,8 +34,10 @@ func apply_initial_velocity(vel: Vector2) -> void:
 
 
 func _process(delta):
-	if bounce.velocity.length() < 0.5 and timer.is_stopped():
-		timer.start()
+	if bounce.velocity.length() < 0.5 and zero_vel_timer.is_stopped() and timer.is_stopped():
+		zero_vel_timer.start()
+	elif bounce.velocity.length() >= 0.5 and not zero_vel_timer.is_stopped():
+		zero_vel_timer.stop()
 
 
 func _on_Area2D_area_entered(body):
@@ -75,4 +78,6 @@ func _on_Timer_timeout():
 
 
 func _on_Bounce2D_bounced():
-	wall_impact.play()
+	if bounce.velocity.length() > 1:
+		print(bounce.velocity.length())
+		wall_impact.play()
