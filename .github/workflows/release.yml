@@ -30,7 +30,7 @@ jobs:
           BUTLER_API_KEY: ${{secrets.BUTLER_API_KEY}}
           USER: ${{secrets.ITCHIO_USER}}
         run: butler push build/$CHANNEL kuma-gee/$GAME:$CHANNEL --userversion ${GITHUB_REF/refs\/tags\//}
-      - run: sh scripts/package.sh $CHANNEL
+      - run: sh scripts/package.sh $CHANNEL $GAME
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
