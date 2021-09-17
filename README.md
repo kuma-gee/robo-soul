@@ -10,7 +10,7 @@ For the Godot Wild Jam #37
     - [Online/Offline(modified)](https://freesound.org/people/LittleRobotSoundFactory/sounds/316277/)
     - [Move(modified)](https://freesound.org/people/Tomlija/sounds/110108/)
     - [Final Cut Scene(modified)](https://freesound.org/people/felix.blume/sounds/185414/)
-    - Other sounds are from a humble bundle that I bought from [gamedevmarket(modified)](https://www.gamedevmarket.net/)
+    - Other sounds are from a [humble](https://www.humblebundle.com/) bundle that I bought from [gamedevmarket(modified)](https://www.gamedevmarket.net/)
 
 
 ## Development
