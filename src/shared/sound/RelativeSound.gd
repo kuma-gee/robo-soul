@@ -4,6 +4,7 @@ export var max_db := 0
 export var min_db := -20
 
 func play_relative(percentage: float) -> void:
+	set_relative_volume(percentage)
 	play()
 
 func set_relative_volume(percentage: float) -> void:
