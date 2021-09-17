@@ -9,7 +9,7 @@ var collision: CollisionShape2D
 
 func _ready():
 	collision = CollisionShape2D.new()
-	add_child(collision)
+	get_collision_object().add_child(collision)
 	collision.shape = RectangleShape2D.new()
 
 func get_collision_object() -> CollisionObject2D:

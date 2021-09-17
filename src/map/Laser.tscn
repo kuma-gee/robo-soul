@@ -1,10 +1,13 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/map/Laser.gd" type="Script" id=1]
 [ext_resource path="res://src/machine/soul.png" type="Texture" id=2]
 [ext_resource path="res://src/shared/misc/SimpleLineCollision2D.gd" type="Script" id=3]
 [ext_resource path="res://src/map/ColorSwitch.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/map/laser-sound.tres" type="AudioStream" id=5]
+[ext_resource path="res://src/shared/sound/ImpactSound.gd" type="Script" id=6]
+[ext_resource path="res://src/map/laser-impact.wav" type="AudioStream" id=7]
+[ext_resource path="res://src/shared/sound/ImpactWall.gd" type="Script" id=8]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.582915, 1 )
@@ -99,8 +102,12 @@ line_path = NodePath("..")
 [node name="StaticBody2D" type="StaticBody2D" parent="FillLine2D"]
 collision_layer = 0
 collision_mask = 0
+script = ExtResource( 8 )
+node_path = NodePath("../../LaserImpactSound")
+
+[node name="LaserCollision" type="Node" parent="FillLine2D"]
 script = ExtResource( 3 )
-node_path = NodePath(".")
+node_path = NodePath("../StaticBody2D")
 width_multiplier = 0.8
 line_path = NodePath("..")
 
@@ -143,3 +150,9 @@ texture = ExtResource( 2 )
 stream = ExtResource( 5 )
 volume_db = -20.0
 bus = "SFX"
+
+[node name="LaserImpactSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "Reverb"
+script = ExtResource( 6 )
+max_velocity = 30

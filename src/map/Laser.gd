@@ -21,6 +21,7 @@ onready var casting_particles := $CastingParticles2D
 onready var collision_particles := $CollisionParticles2D
 onready var beam_particles := $BeamParticles2D
 onready var static_body := $FillLine2D/StaticBody2D
+onready var laser_collision := $FillLine2D/LaserCollision
 onready var color_switch := $FillLine2D/ColorSwitch
 onready var laser_sound := $LaserSound
 
@@ -72,7 +73,7 @@ func cast_beam() -> void:
 	beam_particles.position = cast_point * 0.5
 	beam_particles.process_material.emission_box_extents.x = cast_point.length() * 0.5
 	
-	static_body.update()
+	laser_collision.update()
 	color_switch.update()
 	
 	if not laser_sound.playing:
@@ -84,7 +85,7 @@ func appear() -> void:
 		tween.stop_all()
 	tween.interpolate_property(fill, "width", 0, line_width, growth_time * 2)
 	tween.start()
-	static_body.enable(true)
+	laser_collision.enable(true)
 	color_switch.enable(true)
 
 func disappear() -> void:
@@ -92,7 +93,7 @@ func disappear() -> void:
 		tween.stop_all()
 	tween.interpolate_property(fill, "width", fill.width, 0, growth_time)
 	tween.start()
-	static_body.enable(false)
+	laser_collision.enable(false)
 	color_switch.enable(false)
 	laser_sound.playing = false
 

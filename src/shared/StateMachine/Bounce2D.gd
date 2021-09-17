@@ -24,7 +24,8 @@ func _physics_process(delta):
 
 	var collision = get_body().move_and_collide(velocity)
 	if collision:
-		if impact_sound:
-			impact_sound.impact(velocity, collision.normal)
+		var sound = collision.collider.get_sound() if collision.collider.has_method("get_sound") else impact_sound
+		if sound:
+			sound.impact(velocity, collision.normal)
 		velocity = velocity.bounce(collision.normal)
 		emit_signal("bounced")
