@@ -4,7 +4,7 @@
 [ext_resource path="res://src/machine/soul.png" type="Texture" id=2]
 [ext_resource path="res://src/shared/misc/SimpleLineCollision2D.gd" type="Script" id=3]
 [ext_resource path="res://src/map/ColorSwitch.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/map/laser.wav" type="AudioStream" id=5]
+[ext_resource path="res://src/map/laser-sound.tres" type="AudioStream" id=5]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.582915, 1 )
