@@ -9,7 +9,7 @@ jobs:
   build-release:
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.3.2
+      image: barichello/godot-ci:3.3.3
     strategy:
       matrix:
         channel: [win, linux, mac, web] # Remove channel if not releasing (Available: win, linux, mac, web)
