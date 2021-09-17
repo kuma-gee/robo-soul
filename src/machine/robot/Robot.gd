@@ -31,6 +31,8 @@ func _physics_process(delta):
 		else:
 			anim.stop()
 			move_sound.stop()
+	else:
+		move_sound.stop()
 	
 	turn.motion = motion
 	motion = gravity.apply_gravity(motion, delta)
