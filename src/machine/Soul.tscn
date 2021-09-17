@@ -77,8 +77,8 @@ stream = ExtResource( 7 )
 volume_db = -20.0
 bus = "Reverb"
 script = ExtResource( 8 )
-max_db = -20
-min_db = -40
+max_db = -10
+min_db = -30
 max_velocity = 30
 
 [node name="Gravity2D" type="Node" parent="Bounce2D"]
