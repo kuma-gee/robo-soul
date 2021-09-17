@@ -49,6 +49,7 @@ func _on_Area2D_area_entered(body):
 			_free()
 
 func _free() -> void:
+	bounce.velocity = Vector2.ZERO
 	if sound.playing:
 		hide()
 		bounce.impact_sound = null
