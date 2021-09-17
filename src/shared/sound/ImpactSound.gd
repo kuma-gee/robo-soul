@@ -11,5 +11,4 @@ func impact(velocity: Vector2, normal: Vector2) -> void:
 	var size = abs(velocity.dot(normal.normalized()))
 	var percentage = (velocity.length() / max_velocity) * (size / velocity.length())
 	
-	print(percentage)
 	play_relative(percentage)
