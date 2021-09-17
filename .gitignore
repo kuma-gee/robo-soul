@@ -1,7 +1,8 @@
 script_templates/
 .test/
 tests/results
-.import/
+*.import
+.import
 
 build/
 .*~
