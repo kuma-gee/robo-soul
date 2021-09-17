@@ -9,7 +9,7 @@
 [ext_resource path="res://src/shared/StateMachine/Gravity2D.gd" type="Script" id=7]
 [ext_resource path="res://src/shared/misc/TurnMotion2D.gd" type="Script" id=8]
 [ext_resource path="res://src/machine/robot/robotRed.png" type="Texture" id=9]
-[ext_resource path="res://src/machine/robot/robot-move.wav" type="AudioStream" id=10]
+[ext_resource path="res://src/machine/robot/robot-move.tres" type="AudioStream" id=10]
 [ext_resource path="res://src/machine/robot/robot-online.wav" type="AudioStream" id=11]
 [ext_resource path="res://src/shared/sound/VelocitySound.gd" type="Script" id=12]
 
@@ -292,7 +292,7 @@ shape = SubResource( 7 )
 
 [node name="MoveSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -20.0
+volume_db = -25.0
 bus = "SFX"
 script = ExtResource( 12 )
 max_db = -15
