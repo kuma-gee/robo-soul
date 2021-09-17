@@ -11,6 +11,7 @@ enum ColorType {
 onready var bounce := $Bounce2D
 onready var zero_vel_timer := $ZeroVelocityTimer
 onready var timer := $Timer
+onready var sound := $Bounce2D/WallImpactSound
 
 export(ColorType) var _color: int = ColorType.RED
 
@@ -45,8 +46,15 @@ func _on_Area2D_area_entered(body):
 		var color = body.get_accepting_color()
 		if color == ColorType.ALL or color == _color:
 			body.online = true
-			queue_free()
+			_free()
 
+func _free() -> void:
+	if sound.playing:
+		hide()
+		bounce.impact_sound = null
+		sound.connect("finished", self, "queue_free")
+	else:
+		queue_free()
 
 static func get_color(c: int) -> Color:
 	match c:

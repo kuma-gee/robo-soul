@@ -62,6 +62,7 @@ hframes = 2
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Offline"
 anims/Offline = SubResource( 2 )
 anims/Online = SubResource( 3 )
 
