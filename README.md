@@ -1,4 +1,4 @@
-## Robo Soul ?
+## Robo Soul
 
 For the Godot Wild Jam #37
 
