@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/scene-editor/ChangeScene.gd" type="Script" id=1]
 [ext_resource path="res://src/scenes/robot-power-up.wav" type="AudioStream" id=2]
 [ext_resource path="res://src/scenes/final-robot.png" type="Texture" id=3]
 [ext_resource path="res://src/machine/soul.png" type="Texture" id=4]
+[ext_resource path="res://src/scenes/CopyEnergy.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Play"
@@ -33,48 +34,36 @@ tracks/1/keys = {
 "values": [ Color( 0.188235, 0.188235, 0.188235, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Light2D:energy")
+tracks/2/path = NodePath("Light:energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7, 1, 1.3, 1.7, 2, 6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 1.9, 2.2, 2.5, 2.7, 2.9, 3.1, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, 1.0, 0.0, 0.0, 0.5, 2.2 ]
+"values": [ 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 2.2 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Light2D2:energy")
+tracks/3/path = NodePath("CanvasLayer/PanelContainer:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.7, 1, 1.3, 1.7, 2, 6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, 1.0, 0.0, 0.0, 0.5, 2.2 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("CanvasLayer/PanelContainer:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 9, 10 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/5/type = "method"
-tracks/5/path = NodePath("ToMenu")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/4/type = "method"
+tracks/4/path = NodePath("ToMenu")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 14 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -82,13 +71,13 @@ tracks/5/keys = {
 "method": "change"
 } ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("PowerUpSound:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/path = NodePath("PowerUpSound:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -101,7 +90,7 @@ bg_color = Color( 0, 0, 0, 0.705882 )
 [node name="FinalCutScene" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.188235, 0.188235, 0.188235, 1 )
+color = Color( 0.675294, 0.675294, 0.675294, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true
@@ -116,20 +105,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Light2D2" type="Light2D" parent="."]
+[node name="Light" type="Light2D" parent="."]
 position = Vector2( 346.232, 37 )
 texture = ExtResource( 4 )
 texture_scale = 10.0
-energy = 0.0
+energy = 0.333333
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( -345.105, 37 )
 texture = ExtResource( 4 )
 texture_scale = 10.0
 energy = 0.0
+script = ExtResource( 5 )
+light_path = NodePath("../Light")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+zoom = Vector2( 1.43763, 1.43763 )
 smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -171,4 +163,5 @@ texture = ExtResource( 3 )
 
 [node name="PowerUpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = -10.0
 bus = "SFX"
