@@ -256,9 +256,11 @@ hframes = 2
 [node name="Node2D" type="Node2D" parent="Body/Sprites"]
 
 [node name="Body" type="Sprite" parent="Body/Sprites/Node2D"]
-position = Vector2( -40, -50 )
+modulate = Color( 0.666667, 0.666667, 0.666667, 1 )
+position = Vector2( -40, -30 )
 texture = ExtResource( 9 )
 hframes = 2
+frame = 1
 
 [node name="TrackFront" type="Sprite" parent="Body/Sprites"]
 position = Vector2( -80, 0 )

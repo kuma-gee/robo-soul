@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scenes/menu/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://src/scenes/menu/SFX_wrong&malus4.wav" type="AudioStream" id=2]
 [ext_resource path="res://src/scenes/menu/shared/BackMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/scenes/menu/shared/Retry.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/shared/gui/ThemeOverride.gd" type="Script" id=5]
 
 [node name="GameOver" type="Control"]
 pause_mode = 2
@@ -43,6 +44,8 @@ margin_right = 108.0
 margin_bottom = 19.0
 text = "GAME_OVER"
 align = 1
+script = ExtResource( 5 )
+relative_font_size = 1.5
 
 [node name="Retry" parent="CenterContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 29.0
